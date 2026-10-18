@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nahueroute · Rutas y panoramas de Chile</title>
+  <meta name="description" content="Descubre rutas y panoramas de Chile de forma simple.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="shell">
+
+    <!-- Bloque de marca -->
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="brand">Nahueroute</p>
+      <div class="hero-copy">
+        <h1 id="hero-title">Descubre Chile,<br><em>un camino a la vez.</em></h1>
+        <p class="lead">Rutas y panoramas de todo el país, explicados de forma simple.</p>
+      </div>
+      <svg class="mountains" viewBox="0 0 800 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+        <path class="m3" d="M0 170 L110 90 L190 150 L300 60 L420 160 L520 100 L640 170 L720 120 L800 170 V260 H0Z"/>
+        <path class="m2" d="M0 210 L90 140 L170 190 L290 110 L400 200 L510 140 L610 205 L710 150 L800 205 V260 H0Z"/>
+        <path class="m1" d="M0 240 L120 190 L220 230 L340 175 L450 235 L560 190 L680 238 L800 205 V260 H0Z"/>
+      </svg>
+    </section>
+
+    <!-- Pantalla de acceso -->
+    <section class="panel" id="auth" aria-labelledby="auth-title">
+      <div class="panel-inner">
+        <h2 id="auth-title" class="visually-hidden">Acceso a Nahueroute</h2>
+
+        <div class="tabs" role="tablist" aria-label="Acceso">
+          <button type="button" role="tab" id="tab-signup" class="tab" aria-selected="true" aria-controls="form-signup">Crear cuenta</button>
+          <button type="button" role="tab" id="tab-login" class="tab" aria-selected="false" aria-controls="form-login" tabindex="-1">Iniciar sesión</button>
+        </div>
+
+        <!-- Crear cuenta -->
+        <form id="form-signup" role="tabpanel" aria-labelledby="tab-signup" novalidate>
+          <div class="field">
+            <label for="su-name">Nombre</label>
+            <input id="su-name" name="name" type="text" autocomplete="name" required>
+            <p class="error" id="su-name-err" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="su-email">Correo electrónico</label>
+            <input id="su-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+            <p class="error" id="su-email-err" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="su-pass">Contraseña</label>
+            <div class="pass">
+              <input id="su-pass" name="password" type="password" autocomplete="new-password" minlength="8" required aria-describedby="su-pass-hint">
+              <button type="button" class="toggle" data-target="su-pass" aria-label="Mostrar contraseña" aria-pressed="false">Mostrar</button>
+            </div>
+            <p class="hint" id="su-pass-hint">Mínimo 8 caracteres.</p>
+            <p class="error" id="su-pass-err" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="su-pass2">Repetir contraseña</label>
+            <input id="su-pass2" name="password2" type="password" autocomplete="new-password" required>
+            <p class="error" id="su-pass2-err" role="alert"></p>
+          </div>
+          <button type="submit" class="btn">Crear cuenta</button>
+          <p class="switch">¿Ya tienes cuenta? <button type="button" class="link" data-go="login">Inicia sesión</button></p>
+        </form>
+
+        <!-- Iniciar sesión -->
+        <form id="form-login" role="tabpanel" aria-labelledby="tab-login" novalidate hidden>
+          <div class="field">
+            <label for="li-email">Correo electrónico</label>
+            <input id="li-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+            <p class="error" id="li-email-err" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="li-pass">Contraseña</label>
+            <div class="pass">
+              <input id="li-pass" name="password" type="password" autocomplete="current-password" required>
+              <button type="button" class="toggle" data-target="li-pass" aria-label="Mostrar contraseña" aria-pressed="false">Mostrar</button>
+            </div>
+            <p class="error" id="li-pass-err" role="alert"></p>
+          </div>
+          <p class="error form-error" id="li-form-err" role="alert"></p>
+          <button type="submit" class="btn">Iniciar sesión</button>
+          <p class="switch">¿Primera vez aquí? <button type="button" class="link" data-go="signup">Crea tu cuenta</button></p>
+        </form>
+
+        <p class="demo-note">Modo demostración: por ahora la cuenta se guarda solo en este navegador.</p>
+      </div>
+    </section>
+
+    <!-- Pantalla tras entrar -->
+    <section class="panel" id="welcome" hidden aria-live="polite">
+      <div class="panel-inner welcome">
+        <p class="eyebrow">Sesión iniciada</p>
+        <h2 id="welcome-title">¡Hola!</h2>
+        <p>Pronto verás aquí las rutas y panoramas de Chile.</p>
+        <button type="button" class="btn btn-ghost" id="logout">Cerrar sesión</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
