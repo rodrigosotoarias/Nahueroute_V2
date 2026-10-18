@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  line-height: 1.5;
+  /* Fondo visible solo cuando se abre en una pantalla grande, a los lados del "celular". */
+  background: #d9d0bd;
+}
+
+/* La app siempre se muestra en formato celular, centrada en pantallas grandes. */
+.app-frame {
+  width: 100%;
+  max-width: var(--app-max-width);
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: var(--sand);
+  overflow-x: hidden;
+}
+
+@media (min-width: 520px) {
+  .app-frame {
+    box-shadow: 0 0 40px rgba(20, 38, 31, 0.25);
+  }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
